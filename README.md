@@ -524,8 +524,136 @@ o/p-1.9403940858656452
 3.395792881516465
 2.384539110887282
 3.395792881516465
-
-
+DAY_2
+Data Gathering
+Data Cleaning/Santization
+Exploring the data analytics
+#45
+import numpy as np  
+import pandas as pd
+ # creating Series from a list
+list_data = [101, 202, 404, 303, 505]
+print(list_data, type(list_data))
+s = pd.Series(data=list_data, index=['red','green','brown','blue','magenta'])
+print(s)
+print(s[0], s['red'], s[4], s['magenta'])  # indexing
+print(s[-1], s['magenta'])  # indexing
+print(s[2:])  # slicing (2nd inde onwards)
+print(s[:-1])  # slicing (from first index till the last but one)
+o/p-[101, 202, 404, 303, 505] <class 'list'>
+red        101
+green      202
+brown      404
+blue       303
+magenta    505
+dtype: int64
+101 101 505 505
+505 505
+brown      404
+blue       303
+magenta    505
+dtype: int64
+red      101
+green    202
+brown    404
+blue     303
+dtype: int64
+#46
+print(s)
+print(s.sort_index())
+print(s.sort_values())
+print(s.argmin(), s.argmax(), len(s), s.count(), s.mean(), s.var(), s.std(), s.max(), s.min(), s.sum())
+o/p-red        101
+green      202
+brown      404
+blue       303
+magenta    505
+dtype: int64
+blue       303
+brown      404
+green      202
+magenta    505
+red        101
+dtype: int64
+red        101
+green      202
+blue       303
+brown      404
+magenta    505
+dtype: int64
+0 4 5 5 303.0 25502.5 159.69502183850315 505 101 1515
+#47
+user_data = [['alice',19,'F','student'],['john',26,'M','student']]
+user_columns = ['name','age','gender','job']
+user1 = pd.DataFrame(data=user_data, columns=user_columns)
+user1
+o/p-user_data = [['alice',19,'F','student'],['john',26,'M','student']]
+user_columns = ['name','age','gender','job']
+user1 = pd.DataFrame(data=user_data, columns=user_columns)
+user1
+#48
+user_data = dict(name=['eric','paul'], age=[22,58], gender=['M','F'], job=['student','manager'])
+print(user_data, type(user_data))
+user2 = pd.DataFrame(data=user_data)
+user2
+o/p-
+name	age	gender	job
+0	eric	22	M	student
+1	paul	58	F	manager
+#49
+user_data = {'name':['peter','paul'], 'age':[33,44], 'gender':['M','F'], 'job':['engineer','scientist']}
+print(user_data, type(user_data))
+user3 = pd.DataFrame(data=user_data)
+user3
+o/p-
+name	age	gender	job
+0	peter	33	M	engineer
+1	paul	44	F	scientist
+#50
+users = pd.concat([user1, user2, user3], ignore_index=True)
+print(users)
+o/p-    name  age gender        job
+0  alice   19      F    student
+1   john   26      M    student
+2   eric   22      M    student
+3   paul   58      F    manager
+4  peter   33      M   engineer
+5   paul   44      F  scientist
+#51
+arr_data=np.array(users)
+print(arr_data, type(arr_data))
+arr_data=users.to_numpy()
+print(arr_data, type(arr_data))
+o/p-[['alice' 19 'F' 'student']
+ ['john' 26 'M' 'student']
+ ['eric' 22 'M' 'student']
+ ['paul' 58 'F' 'manager']
+ ['peter' 33 'M' 'engineer']
+ ['paul' 44 'F' 'scientist']] <class 'numpy.ndarray'>
+[['alice' 19 'F' 'student']
+ ['john' 26 'M' 'student']
+ ['eric' 22 'M' 'student']
+ ['paul' 58 'F' 'manager']
+ ['peter' 33 'M' 'engineer']
+ ['paul' 44 'F' 'scientist']] <class 'numpy.ndarray'>
+ #52
+ #join dataframes
+dict_data=dict(name=['alice','john','eric','paul','peter'], hieght=[165,180,175,180,181])
+user5=pd.DataFrame(data=dict_data)
+user5
+o/p-
+name	hieght
+0	alice	165
+1	john	180
+2	eric	175
+3	paul	180
+4	peter	181
+#53
+shape-no.of rows,no. of columns in form of tuples
+size-row * column
+len-no of rows
+users.shape[0]=rows
+users.shape[1]=columns
 
 
 
