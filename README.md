@@ -7,6 +7,7 @@ import numpy as np
 data1 =[11, 22,33,44.0,55,66,77,88,'AEC',True,False]
 print(data1,len(data1),type(data1))
 arr1 =np.array(data1)
+
 print(arr1, len(arr1),type(arr1), arr1.dtype)
 o/p-Successfully installed numpy-2.3.2
 [11, 22, 33, 44.0, 55, 66, 77, 88, 'AEC', True, False] 11 <class 'list'>
