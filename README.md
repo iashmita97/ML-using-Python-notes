@@ -20,6 +20,7 @@ print(arr1)
 o/p-range(1, 20, 3)
 [ 1  4  7 10 13 16 19]
 #3
+
 data2 =[range(1,5),range(6,10)]
 print(data2)
 arr2 = np.array(data2)
